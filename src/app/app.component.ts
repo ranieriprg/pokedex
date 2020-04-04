@@ -1,6 +1,4 @@
-import { Pokemon } from './models/pokedex/pokemon';
-import { getTestBed } from '@angular/core/testing';
-import { PokedexService } from './services/pokedex/pokedex.service';
+
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,11 +9,11 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit{
 
-  pokemon = {} as Pokemon;
+  pokemon = [] as any;
   title = 'Pokedex';
 
 
-  constructor(private pokedexService: PokedexService) {
+  constructor() {
 
    }
 
@@ -24,10 +22,6 @@ export class AppComponent implements OnInit{
   }
 
   getPokemon(){
-      this.pokedexService.getCarById().subscribe((pokemon: Pokemon) => {
-      this.pokemon = pokemon;
-      alert(this.pokemon.name)
-    });
    
   }
 
